@@ -23,7 +23,7 @@ import {
 import { PersistGate } from "redux-persist/integration/react";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
-/* REDUX PERSISTENCE local storage state */
+/* REDUX PERSISTENCE */
 const createNoopStorage = () => {
   return {
     getItem(_key: any) {
@@ -80,7 +80,7 @@ export default function StoreProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const storeRef = useRef<AppStore>(null);
+  const storeRef = useRef<AppStore>();
   if (!storeRef.current) {
     storeRef.current = makeStore();
     setupListeners(storeRef.current.dispatch);
