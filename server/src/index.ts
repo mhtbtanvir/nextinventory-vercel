@@ -3,7 +3,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
 import bodyparser from "body-parser";
-import morgan from "morgan";
+import morgan from "morgan"
+import dashboardRoutes from "./routes/dashboardRoutes";
 /*Routes*/
 
 /*configureations*/
@@ -19,9 +20,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 
 /*Routes*/
-app.get("/hello", (req, res) => {
-    res.send("Hello World!");
-})
+app.use("/dashboard", dashboardRoutes);
 /*Server*/
 const port = process.env.PORT||3001;
 app.listen(port, () => {

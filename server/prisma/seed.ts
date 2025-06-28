@@ -3,6 +3,8 @@ import { PrismaClient } from "@prisma/client";
 import fs from "fs";
 
 import path from "path";
+import dotenv from "dotenv";
+dotenv.config();
 const prisma = new PrismaClient();
 
 
@@ -59,13 +61,14 @@ async function main() {
       });
     }
 
-    console.log(`Seeded ${modelName} with data from ${fileName}`);
+    console.log(`✅Seeded ${modelName} with data from ${fileName}`);
   }
 }
 
 main()
   .catch((e) => {
     console.error(e);
+    process.exit(1);
   })
   .finally(async () => {
     await prisma.$disconnect();
