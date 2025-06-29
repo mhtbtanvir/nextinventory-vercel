@@ -70,7 +70,7 @@ const Sidebar = () => {
   };
 
   const sidebarClassNames = `fixed flex flex-col ${
-    isSidebarCollapsed ? "w-7  md:w-16" : "w-65~ md:w-65"
+    isSidebarCollapsed ? "w-7 py-12 md:w-16 " : "w-65~ md:w-65"
   } bg-white transition-all duration-300 overflow-hidden h-full shadow-md z-40`;
 
   return (
