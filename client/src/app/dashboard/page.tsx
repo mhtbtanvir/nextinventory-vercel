@@ -14,7 +14,7 @@ const Dashboard = ( ) => {
     <CardPopularProducts/>
     <CardsalesSummary/>
     <CardPurchaseSummary/>
-    <div className="row-span-3 bg-pink-500" />
+    <div className="row-span-3 bg-gray-500" />
     <div className="row-span-2 md:row-span-3 xl:row-span-2  bg-blue-500" />
     <div className="row-span-2 md:row-span-3 xl:row-span-2  bg-gray-500" />
     <div className="row-span-2 md:row-span-3 xl:row-span-2  bg-pink-500" />

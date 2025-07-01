@@ -6,7 +6,8 @@ import { ShoppingBag, Star } from 'lucide-react'
  const CardPopularProducts = () => {
     const {data:dashboardMetrics,isLoading} = useGetDashboardMetricsQuery()
    return (
-     <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl pb-16">
+    <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl pb-16">
+      
        {isLoading?(
         <div className='m-5'>isLoading</div>
        ):(
@@ -62,7 +63,7 @@ import { ShoppingBag, Star } from 'lucide-react'
         </>
 
        )}
-        </div>
+    </div>
    )
  }
 

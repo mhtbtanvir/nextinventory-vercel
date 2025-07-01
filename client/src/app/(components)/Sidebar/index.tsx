@@ -35,15 +35,14 @@ const SidebarLink = ({
     pathname === href || (pathname === "/" && href === "/dashboard");
 
   return (
-    <Link href={href}>
+    <Link href={href} className="group relative">
       <div
         className={`cursor-pointer flex items-center ${
           isCollapsed ? "justify-center py-5 px-1" : "justify-start px-8 py-4"
         }
         hover:text-blue-500 hover:bg-blue-100 gap-3 transition-colors ${
           isActive ? "bg-blue-200 text-white" : ""
-        }
-      }`}
+        }`}
       >
         <Icon className="w-6 h-6 !text-gray-700" />
 
@@ -55,6 +54,16 @@ const SidebarLink = ({
           {label}
         </span>
       </div>
+
+      {/* Tooltip when collapsed */}
+      {isCollapsed && (
+        <span className="absolute left-14 top-1/2 -translate-y-1/2 scale-0 group-hover:scale-100 origin-left bg-gray-800 text-white text-xs rounded-md px-2 py-1 transition-all duration-200 shadow-lg pointer-events-none whitespace-nowrap">
+          {label}
+        </span>
+      )}
+
+      {/* Divider below each link */}
+      <hr className="border-dotted border-gray-300 mx-4" />
     </Link>
   );
 };
@@ -70,7 +79,7 @@ const Sidebar = () => {
   };
 
   const sidebarClassNames = `fixed flex flex-col ${
-    isSidebarCollapsed ? "w-7 py-12 md:w-16 " : "w-65~ md:w-65"
+    isSidebarCollapsed ? "w-7 py-12 md:w-16" : "w-64 md:w-64"
   } bg-white transition-all duration-300 overflow-hidden h-full shadow-md z-40`;
 
   return (
