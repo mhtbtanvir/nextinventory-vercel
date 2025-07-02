@@ -30,7 +30,7 @@ const CardSalesSummary = () => {
   }, salesData[0] || {});
 
   const highestValueDate = highestValueData.date
-    ? new Date(highestValueData.date).toLocaleDateString("en-US", {
+    ? new Date(highestValueData.date).toLocaleDateString("en-UK", {
         month: "numeric",
         day: "numeric",
         year: "2-digit",
@@ -58,7 +58,7 @@ const CardSalesSummary = () => {
           {/* BODY */}
           <div>
             {/* BODY HEADER */}
-            <div className="flex justify-between items-center bg-gray-50 py-5 mb-6 px-7 mt-5">
+            <div className="flex justify-between items-center bg-gray-50  mb-6 px-7 mt-5">
               <div className="text-lg font-medium">
                 <p className="text-xs text-gray-400">Value</p>
                 <span className="text-2xl font-extrabold">
@@ -66,7 +66,7 @@ const CardSalesSummary = () => {
                   {(totalValueSum / 1000000).toLocaleString("en", {
                     maximumFractionDigits: 2,
                   })}
-                  
+                  m
                 </span>
                 <span className="text-green-500 text-sm ml-2">
                   <TrendingUp className="inline w-4 h-4 mr-1" />
@@ -89,7 +89,7 @@ const CardSalesSummary = () => {
             <ResponsiveContainer width="100%" height={350} className="px-7">
               <BarChart
                 data={salesData}
-                margin={{ top: 0, right: 0, left: -25, bottom: 0 }}
+                margin={{ top: 0, right: 0, left: -25, bottom: 20 }}
               >
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis
@@ -132,8 +132,8 @@ const CardSalesSummary = () => {
 
           {/* FOOTER */}
           <div>
-            <hr />
-            <div className="flex justify-between items-center mt-2  text-sm px-7 mb-4">
+            <hr  />
+            <div className="flex justify-between items-center mt-1  text-sm px-7 mb-4">
               <p>{salesData.length || 0} days</p>
               <p className="text-sm">
                 Highest Sales Date:{" "}

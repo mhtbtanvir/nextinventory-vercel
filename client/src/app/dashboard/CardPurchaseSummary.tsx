@@ -12,26 +12,28 @@ const purchaseData = data?.purchaseSummary || [];
 const lastDataPoint = purchaseData[purchaseData.length - 1] || null;
 
 return (
-<div className="flex flex-col justify-between row-span-2 xl:row-span-6 col-span-1 md:col-span-2 xl:col-span-1 bg-white/70 backdrop-blur-lg shadow-xl rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+
+  <div className="flex flex-col justify-between row-span-2 xl:row-span-3 col-span-1 md:col-span-2 xl:col-span-1 bg-white shadow-md rounded-2xl">
   {isLoading ? (
     <div className="m-5 text-center text-gray-600">Loading...</div>
   ) : (
     <>
       {/* Header */}
       <div>
-        <h2 className="text-lg font-semibold px-7 bg-blue-50 rounded-lg pt-5 pb-2">
+        <h2 className="text-lg font-semibold px-7 bg-blue-50 rounded-lg pt-1 pb-1">
           Purchase Summary
         </h2>
         <hr />
       </div>
 
       {/* Body */}
-      <div className="mb-4 mt-7 px-7">
+      <div className="mb-2 mt-2 px-7">
         <p className="text-gray-400 text-xs">Purchased goods of</p>
 
         <div className="flex items-center">
-          <p className="text-3xl font-bold text-gray-800 transition-transform duration-300 hover:scale-105">
-            {lastDataPoint ? numeral(lastDataPoint.totalPurchased).format("$0.00a") : "0"}
+          <p className="text-2xl font-extrabold  text-gray-800 transition-transform duration-300 hover:scale-105">
+            {lastDataPoint ? 
+            numeral(lastDataPoint.totalPurchased).format("$0.00a") : "0"}
           </p>
 
           {lastDataPoint && (
@@ -55,13 +57,18 @@ return (
 
       {/* Chart */}
       {purchaseData && (
-        <ResponsiveContainer width="100%" height={350} className="px-7">
+        <ResponsiveContainer width="100%" height={200} className="p-2">
           <AreaChart
             data={purchaseData}
             margin={{ top: 0, right: 0, left: -50, bottom: 45 }}
           >
             <CartesianGrid strokeDasharray="3 3" vertical={false} />
-            <XAxis dataKey="date" tickLine={false} axisLine={false} />
+            <XAxis
+              dataKey="date"
+              tickFormatter={(value) => {
+                const date = new Date(value);
+                return `${date.getMonth() + 1}/${date.getDate()}`;
+            }}/>
             <YAxis tick={false} tickLine={false} axisLine={false} />
             <Tooltip
               contentStyle={{
@@ -102,7 +109,7 @@ return (
     </>
   )}
 </div>
-   
+ 
   
 )}
 
