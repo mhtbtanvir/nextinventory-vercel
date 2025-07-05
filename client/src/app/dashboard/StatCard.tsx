@@ -31,7 +31,7 @@ const StatCard = ({
   return (
     <div
      className='
-      row-span-2 md:row-span-3
+      row-span-2 md:row-span-2
       xl:row-span-2
       bg-white/50 col-span-1 
       shadow-md rounded-2xl 

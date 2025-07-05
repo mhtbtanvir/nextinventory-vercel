@@ -41,7 +41,7 @@ return(
     <div
         className="bg-white shadow-md 
         rounded-2xl flex flex-col
-        justify-between row-span-3">
+        justify-between row-span-3 md:row-span-8 xl:row-span-3">
 
         {isLoading?(
             <div className='m-5'>isLoading</div>
