@@ -63,7 +63,7 @@ const CreateProductModal = ({
           <input
             type="text"
             name="name"
-            placeholder="Name"
+            placeholder="Type product name here"
             onChange={handleChange}
             value={formData.name}
             className={inputCssStyles}

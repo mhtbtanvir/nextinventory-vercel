@@ -6,8 +6,14 @@ import { PlusCircle, SearchIcon } from "lucide-react";
 import React, { useState } from "react";
 import Header from "@/app/(components)/Header";
 import Rating from "@/app/(components)/Rating";
-import CreateProduct from "./CreateProductModal";
-import { create } from "domain";
+import CreateProductModal from "./CreateProductModal";
+type ProductFormData = {
+  name: string;
+  price: number;
+  stockQuantity: number;
+  rating: number;
+};
+
 const products = () => {
   const [searchTerm, setSearchTerm] = useState(" ");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -85,11 +91,11 @@ const products = () => {
         )}
       </div>
       {/*Modal*/}
-      {/* <CreateProduct
+      <CreateProductModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onCreate={handleCreateProduct}
-      /> */}
+      />
     </div>
   );
 };

@@ -3,12 +3,12 @@ import dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
 import bodyparser from "body-parser";
-import morgan from "morgan"
+import morgan from "morgan";
 /*Routes*/
 import dashboardRoutes from "./routes/dashboardRoutes";
 import productRoutes from "./routes/productroutes";
-
-
+import userRoutes from "./routes/userRoutes";
+import expenseRoutes from "./routes/expenseRoutes";
 /*configureations*/
 dotenv.config();
 
@@ -24,9 +24,10 @@ app.use(bodyparser.urlencoded({ extended: false }));
 /*Routes*/
 app.use("/dashboard", dashboardRoutes); //tag http://localhost:3001/dashboard
 app.use("/products", productRoutes); //tag http://localhost:3001/products
+app.use("/users", userRoutes); //tag http://localhost:3001/users
+app.use("/expenses", expenseRoutes);
 /*Server*/
-const port = process.env.PORT||3001;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });
-
