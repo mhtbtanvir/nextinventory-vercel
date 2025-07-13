@@ -71,7 +71,7 @@ const SidebarLink = ({
 const Sidebar = () => {
   const dispatch = useAppDispatch();
   const isSidebarCollapsed = useAppSelector(
-    (state) => state.global.isSidebarCollapsed
+    (state) => state.global.isSidebarCollapsed,
   );
 
   const toggleSidebar = () => {
@@ -87,13 +87,13 @@ const Sidebar = () => {
       {/* TOP LOGO */}
       <div
         className={`flex gap-3 justify-between md:justify-normal items-center pt-8 ${
-          isSidebarCollapsed ? "px-5" : "px-8"
+          isSidebarCollapsed ? "px-5 " : "px-8"
         }`}
       >
         <Image
-          src="/logo.png"
+          src="/logo.jpg"
           alt="logo"
-          width={isSidebarCollapsed ? 32 : 48}
+          width={isSidebarCollapsed ? 36 : 45}
           height={isSidebarCollapsed ? 32 : 48}
         />
         <h1

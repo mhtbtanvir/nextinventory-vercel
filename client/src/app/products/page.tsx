@@ -2,7 +2,7 @@
 
 import { useCreateProductMutation, useGetProductsQuery } from "@/state/api";
 import { PlusCircle, SearchIcon } from "lucide-react";
-
+import Image from "next/image";
 import React, { useState } from "react";
 import Header from "@/app/(components)/Header";
 import Rating from "@/app/(components)/Rating";
@@ -29,9 +29,7 @@ const products = () => {
   };
   if (isLoading)
     return (
-      <div justify-center items-center py-10>
-        Loading...
-      </div>
+      <div className="flex justify-center items-center py-10">Loading...</div>
     );
   if (isError)
     return <div className="text-center text-red-500 py-4">Error</div>;
@@ -40,7 +38,7 @@ const products = () => {
     <div className="mx-auto pb-5 w-full ">
       {/*Search*/}
       <div className=" mb-6 ">
-        <div className="flex items-center border-2 border-fray-200 rounded">
+        <div className="flex items-center border-2 border-blue-50 rounded">
           <SearchIcon className="w-5 h-5 text-gray-500 m-2" />
           <input
             className="w-full py-2 px-4 rounded bg-white"
@@ -72,7 +70,14 @@ const products = () => {
               className=" boder shadow bg-white p-4 max-w-full  rounded mx-2 my-2"
             >
               <div className="flex flex-col items-center">
-                img
+                <Image
+                  src={`/product${Math.floor(Math.random() * 3) + 1}.png`}
+                  alt={product.name}
+                  width={150}
+                  height={150}
+                  className="mb-3 rounded-2xl w-36 h-36"
+                />
+
                 <h3 className="text-lg text-gray-900  font-semibold">
                   {product.name}
                 </h3>
