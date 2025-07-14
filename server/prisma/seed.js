@@ -15,6 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = require("@prisma/client");
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const prisma = new client_1.PrismaClient();
 function deleteAllData(orderedFileNames) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -63,13 +65,14 @@ function main() {
                     data,
                 });
             }
-            console.log(`Seeded ${modelName} with data from ${fileName}`);
+            console.log(`✅Seeded ${modelName} with data from ${fileName}`);
         }
     });
 }
 main()
     .catch((e) => {
     console.error(e);
+    process.exit(1);
 })
     .finally(() => __awaiter(void 0, void 0, void 0, function* () {
     yield prisma.$disconnect();
