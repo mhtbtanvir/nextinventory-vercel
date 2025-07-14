@@ -20,7 +20,9 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
-
+app.get("/", (req, res) => {
+  res.send("API is running on Vercel");
+});
 /*Routes*/
 app.use("/dashboard", dashboardRoutes); //tag http://localhost:3001/dashboard
 app.use("/products", productRoutes); //tag http://localhost:3001/products
