@@ -1,5 +1,5 @@
 # NextInventoryApp
-
+Live at : https://stockit-tm.vercel.app/
 A full-stack inventory management web application using Next.js (App Router), Express.js, Prisma, and PostgreSQL. The frontend is deployed on Vercel, and the backend is also deployed on Vercel using serverless functions, connected to a Railway-hosted PostgreSQL database.
 
 ---
