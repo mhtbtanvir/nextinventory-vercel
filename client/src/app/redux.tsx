@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
   TypedUseSelectorHook,
@@ -9,7 +9,6 @@ import {
 import globalReducer from "@/state";
 import { api } from "@/state/api";
 import { setupListeners } from "@reduxjs/toolkit/query";
-
 import {
   persistStore,
   persistReducer,
@@ -84,8 +83,14 @@ export default function StoreProvider({
 
   if (!storeRef.current) {
     storeRef.current = makeStore();
-    setupListeners(storeRef.current.dispatch);
   }
+
+  useEffect(() => {
+    if (storeRef.current) {
+      setupListeners(storeRef.current.dispatch);
+    }
+  }, []);
+
   const persistor = persistStore(storeRef.current);
 
   return (
