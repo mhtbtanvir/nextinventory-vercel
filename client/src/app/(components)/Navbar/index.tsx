@@ -8,7 +8,9 @@ import React from "react";
 const Navbar = () => {
   const dispatch = useAppDispatch();
 
-  const isSidebarCollapsed = useAppSelector((state) => state.global.isSidebarCollapsed);
+  const isSidebarCollapsed = useAppSelector(
+    (state) => state.global.isSidebarCollapsed,
+  );
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
   const toggleSidebar = () => {
@@ -20,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center w-full mb-7 bg-white/60 backdrop-blur-md shadow-lg rounded-xl px-5 py-3 transition-all duration-300">
+    <div className="flex justify-between items-center w-full mb-7 bg-gray-500/20 backdrop-blur-md shadow-lg rounded-xl px-5 py-3 transition-all duration-300">
       {/* Left Side */}
       <div className="flex items-center gap-5">
         <button
@@ -43,7 +45,10 @@ const Navbar = () => {
 
       {/* Right Side */}
       <div className="flex items-center gap-5">
-        <button onClick={toggleDarkMode} className="transition-transform duration-300 hover:scale-110">
+        <button
+          onClick={toggleDarkMode}
+          className="transition-transform duration-300 hover:scale-110"
+        >
           {isDarkMode ? (
             <Sun className="cursor-pointer text-yellow-400" size={22} />
           ) : (
@@ -53,7 +58,10 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-5">
           <div className="relative">
-            <Bell className="cursor-pointer text-gray-500 hover:text-blue-500 transition-colors duration-300" size={22} />
+            <Bell
+              className="cursor-pointer text-gray-500 hover:text-blue-500 transition-colors duration-300"
+              size={22}
+            />
             <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-[0.4rem] py-[0.2rem] text-xs font-semibold leading-none text-white bg-red-500 rounded-full shadow">
               3
             </span>
@@ -70,7 +78,10 @@ const Navbar = () => {
         </div>
 
         <Link href="/settings">
-          <Settings className="cursor-pointer text-gray-500 hover:text-blue-500 transition-colors duration-300" size={22} />
+          <Settings
+            className="cursor-pointer text-gray-500 hover:text-blue-500 transition-colors duration-300"
+            size={22}
+          />
         </Link>
       </div>
     </div>

@@ -1,20 +1,16 @@
-
 @tailwind base;
-@tailwind components; 
+@tailwind components;
 @tailwind utilities;
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-
 }
 html,
 body,
 #root,
-
-
-.app{
+.app {
   height: 100%;
   width: 100%;
   @apply text-sm;
